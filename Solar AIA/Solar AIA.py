@@ -86,15 +86,18 @@ for i in range(len(t2)):
     if r<R: 
         (r, t2['particle'].iloc[i])
         iloc_valid.append(i)
+  
         
+fra = max(t2.iloc[iloc_valid]['frame']) + 1
+
 
 Bull=[]
-for i in range(10): 
+for i in range(fra): 
     s= t2.iloc[iloc_valid].loc[i].sum(axis=0).loc['signal']  
     Bull+=[s]
     
     
-x = np.linspace(0, 9, num=10)
+x = np.array(range(fra))
 y = np.array(Bull)
 
 plt.title('Light Curve')
